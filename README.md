@@ -24,6 +24,7 @@ connect to this "remote" server:
 
     docker run --rm --link janusgraph:janusgraph -e GREMLIN_REMOTE_HOSTS=janusgraph -it janusgraph/janusgraph:0.6.0 ./bin/gremlin.sh
     :remote connect tinkerpop.server conf/remote.yaml
+    :> g.V()
 
 setup java 17 and check maven version:
 
@@ -34,4 +35,15 @@ setup java 17 and check maven version:
 create a maven project:
 
     mvn archetype:generate -DgroupId=ch.maxant.janusgraph -DartifactId=gremlin-example -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+https://github.com/opencypher/cypher-for-gremlin: not used yet, coz it onyl seems to be tested agains janusgraph 0.4.0 and not the version used here (0.6.0)
+
+visualisation: https://github.com/bricaud/graphexp => clone this, change server url in graphexp.html
+
+    cd graphexp
+    http-server
+
+open browser at: http://192.168.1.151:8080/graphexp.html
+
+enter "person" in the `node label` field and click search
 
